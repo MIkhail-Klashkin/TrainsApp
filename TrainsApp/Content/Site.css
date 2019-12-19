@@ -22,3 +22,43 @@ select,
 textarea {
     max-width: 280px;
 }
+.tiny-panel {
+    margin: 20px auto;
+    width: 300px;
+}
+.my-panel {
+    border: 1px solid #D4D4D4;
+    margin: 20px auto;
+    background-color: #FFFFFF;
+}
+.my-panel-header {
+    border-bottom: 1px solid #D4D4D4;
+    background-color: #DCE4E9;
+    padding: 4px;
+}
+.my-header-text {
+    color: #7E7E7E;
+    font-size: 16px;
+    margin: 7px;
+    font-weight: 500;
+}
+.my-desc-text {
+    color: #7E7E7E;
+    font-size: 14px;
+    font-weight: 500;
+}
+.button-gray {
+    border-color: #aabbcc;
+    color: #818283;
+    background-color: #dce4e9;
+    border-radius: 0;
+    font-weight: bold;
+}
+table.my-table {
+    border-collapse: separate;
+    border-spacing: 16px;
+}
+.wide-panel {
+    margin: 20px auto;
+    width: 70%;
+}
