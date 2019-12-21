@@ -14,7 +14,7 @@ namespace TrainsApp.DAL
             Database.SetInitializer(new TrainDBInitializer());
         }
 
-        public TrainDBContext() : base("TrainDatabase")
+        public TrainDBContext() : base("TrainDBContext")
         {
 
         }
