@@ -28,7 +28,7 @@ namespace TrainsApp.Controllers
                   // FormsAuthentication.SetAuthCookie(model.Nickname, model.RememberMe);
                     Session["UserId"] = userInDB.Id.ToString();
                     Session["UserNick"] = userInDB.Username;
-                    return RedirectToAction("Index", "Feed");
+                    return RedirectToAction("Index", "Timetable");
                 }
                 else
                 {

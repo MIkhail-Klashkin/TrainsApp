@@ -28,7 +28,7 @@ textarea {
 }
 .my-panel {
     border: 1px solid #D4D4D4;
-    margin: 20px auto;
+    margin:  auto;
     background-color: #FFFFFF;
 }
 .my-panel-header {
@@ -59,6 +59,6 @@ table.my-table {
     border-spacing: 16px;
 }
 .wide-panel {
-    margin: 20px auto;
-    width: 70%;
+    margin: auto;
+    width: 50%;
 }

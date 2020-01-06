@@ -14,12 +14,12 @@ namespace TrainsApp.Models
         [Display(Name = "Логин")]
         [Required(ErrorMessage = "Введите логин")]
         [MinLength(3, ErrorMessage = "Логин слишком короткий"), MaxLength(10, ErrorMessage = "Логин слишком длинный")]
-        [RegularExpression(@"^(?=.*[A-Za-zА-Яа-я])[A-Za-zА-Яа-я\d_]{3,20}", ErrorMessage = "Логин некорректен")]
+        [RegularExpression(@"^(?=.*[A-Za-zА-Яа-я])[A-Za-zА-Яа-я\d_]{3,10}", ErrorMessage = "Логин некорректен")]
         public string Username { get; set; }
         [Display(Name = "Пароль")]
         [Required(ErrorMessage = "Введите пароль*")]
         [MinLength(6, ErrorMessage = "Пароль слишком короткий"), MaxLength(10, ErrorMessage = "Пароль слишком длинный")]
-        [RegularExpression(@"^(?=.*[A-Za-zА-Яа-я])[A-Za-zА-Яа-я\d_]{6,20}", ErrorMessage = "Пароль некорректен")]
+        [RegularExpression(@"^(?=.*[A-Za-zА-Яа-я])[A-Za-zА-Яа-я\d_]{6,10}", ErrorMessage = "Пароль некорректен")]
         public string Password { get; set; }
         [NotMapped]
         [Display(Name = "Подтвердите пароль")]

@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using TrainsApp.Models;
+using TrainsApp.Models.DB;
 
 namespace TrainsApp.DAL
 {
@@ -20,7 +21,10 @@ namespace TrainsApp.DAL
         }
 
         public DbSet<UserDB> Users { get; set; }
+        public DbSet<Station> Stations { get; set; }
+        public DbSet<Timetable> Timetables { get; set; }
+        public DbSet<Train> Trains { get; set; }
 
-     //   public DbSet<Post> Posts { get; set; }
+        //   public DbSet<Post> Posts { get; set; }
     }
 }

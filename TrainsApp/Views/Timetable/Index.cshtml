@@ -1,0 +1,13 @@
+﻿@using TrainsApp.Models.ViewModel
+@{
+    ViewBag.Title = "Расписание";
+}
+
+@{
+    TimetableViewModel timetableView = ViewBag.ProfileView;
+    Html.RenderPartial("Add", timetableView);
+
+}
+<h2>Расписание</h2>
+
+@Html.ActionLink("Добавить", "Add", "Timetable", routeValues: null, htmlAttributes: new { @class = "btn button-gray", @role = "button" })

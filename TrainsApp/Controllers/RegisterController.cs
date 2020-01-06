@@ -39,7 +39,7 @@ namespace TrainsApp.Controllers
 
                 Session["UserId"] = model.Id.ToString();
                 Session["UserNick"] = model.Username;
-                return RedirectToAction("About", "Home");
+                return RedirectToAction("Index", "Timetable");
             }
             return View("Index");
         }

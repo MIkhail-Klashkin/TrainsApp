@@ -142,14 +142,18 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\TimetableController.cs" />
     <Compile Include="DAL\TrainDBContext.cs" />
     <Compile Include="DAL\TrainDBInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DB\Station.cs" />
+    <Compile Include="Models\DB\Timetable.cs" />
+    <Compile Include="Models\DB\Train.cs" />
     <Compile Include="Models\DB\UserDB.cs" />
     <Compile Include="Models\ViewModel\LoginViewModel.cs" />
+    <Compile Include="Models\ViewModel\TimetableViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +193,9 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\Timetable\Index.cshtml" />
+    <Content Include="Views\Timetable\Add.cshtml" />
+    <Content Include="Views\Timetable\Change.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
