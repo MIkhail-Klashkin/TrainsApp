@@ -15,8 +15,14 @@ namespace TrainsApp.Controllers
         private readonly TrainDBContext _context = new TrainDBContext();
         public ActionResult Index()
         {
+            if (Session["UserId"] != null)
+            {
+                return RedirectToAction("Index", "Timetable");
+            }
+            else
             return View();
         }
+
         [HttpPost]
         public ActionResult Register(UserDB model)
         {

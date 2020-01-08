@@ -12,7 +12,7 @@ namespace TrainsApp.Models.DB
         public int Id { get; set; }
         public int TrainNumber { get; set; }
         public int Way { get; set; }
-        public string Platform { get; set; }
+        public int Platform { get; set; }
         public string Destination { get; set; }
         public DateTime DepartureTime { get; set; }
         public DateTime ArrivalTime { get; set; }

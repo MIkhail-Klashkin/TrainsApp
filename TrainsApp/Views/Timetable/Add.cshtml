@@ -1,4 +1,5 @@
 ﻿@model TrainsApp.Models.ViewModel.TimetableViewModel
+@using TrainsApp.Models.ViewModel
 @{
     ViewBag.Title = "Добавить";
 }
@@ -8,17 +9,17 @@
 <div class="my-panel wide-panel">
     <div class="my-panel-header">
         <div class="my-header-text">
-           Добавление элемента
+            Добавление элемента
         </div>
     </div>
     <div class="panel-body">
-        @using (Html.BeginForm("Add", "Timetable", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("AddTimetable", "Timetable", FormMethod.Post))
         {
             <form>
                 <table width="100%" border="0" class="my-table">
                     <tr>
                         <td valign="top">
-                            @Html.LabelFor(model => model.TrainNumber)*
+                            @Html.LabelFor(model => model.TrainNumber)
                             @Html.EditorFor(model => model.TrainNumber, new { htmlAttributes = new { @class = "form-control" } })
                             <div class="text-danger">
                                 @Html.ValidationMessageFor(model => model.TrainNumber)
@@ -58,7 +59,7 @@
                     <tr>
                         <td valign="top">
                             @Html.LabelFor(model => model.DepartureTime)
-                            @Html.EditorFor(model => model.DepartureTime, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.DepartureTime, new { htmlAttributes = new { @class = "form-control", type = "time" } })
                             <div class="text-danger">
                                 @Html.ValidationMessageFor(model => model.DepartureTime)
                             </div>
@@ -67,7 +68,7 @@
                     <tr>
                         <td valign="top">
                             @Html.LabelFor(model => model.ArrivalTime)
-                            @Html.EditorFor(model => model.ArrivalTime, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.ArrivalTime, new { htmlAttributes = new { @class = "form-control", type = "time" } })
                             <div class="text-danger">
                                 @Html.ValidationMessageFor(model => model.ArrivalTime)
                             </div>
@@ -76,8 +77,17 @@
 
                     <tr>
                         <td valign="top">
+
                             @Html.LabelFor(model => model.Type)
-                            @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
+                          @*  @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @Html.DropDownListFor(model=>model.Type, ViewBag.Type as SelectList)
+
+                            @*<select name="Выберите тип">
+                                <option>Пассажирский</option>
+                                <option>Товарный</option>
+                                <option>Электропоезд</option>*@
+
+                            @*</select>*@
                             <div class="text-danger">
                                 @Html.ValidationMessageFor(model => model.Type)
                             </div>
@@ -94,12 +104,13 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><button type="submit" class="btn button-gray btn-block">Добавить</button></td>
-                        <td><button type="submit" class="btn button-gray btn-block">Отмена</button></td>
+                        @*  <td>@Html.ActionLink("Добавить", "AddTimetable", "Timetable", routeValues: null, htmlAttributes: new { @class = "btn button-gray", @role = "button", type = "" })</td>*@
+                       <td><button type="submit" class="btn button-gray btn-block">Добавить</button></td>
+                        <td>@Html.ActionLink("Отмена", "Index", "Timetable", routeValues: null, htmlAttributes: new { @class = "btn button-gray", @role = "button" })</td>
                     </tr>
                 </table>
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             </form>
         }
     </div>
-    </div>
+</div>

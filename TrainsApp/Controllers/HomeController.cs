@@ -25,7 +25,7 @@ namespace TrainsApp.Controllers
 
                 if (userInDB != null)
                 {
-                  // FormsAuthentication.SetAuthCookie(model.Nickname, model.RememberMe);
+                   FormsAuthentication.SetAuthCookie(model.Username, true);
                     Session["UserId"] = userInDB.Id.ToString();
                     Session["UserNick"] = userInDB.Username;
                     return RedirectToAction("Index", "Timetable");
@@ -39,8 +39,18 @@ namespace TrainsApp.Controllers
         }
         public ActionResult Logout()
         {
+
             FormsAuthentication.SignOut();
             Session.Abandon();
+
+            var cookie = Request.Cookies["UserInfo"];
+            if (cookie != null)
+            {
+                var newCookie = new HttpCookie("UserInfo");
+                newCookie.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(newCookie);
+
+            }
             return RedirectToAction("Index");
         }
         public ActionResult About()

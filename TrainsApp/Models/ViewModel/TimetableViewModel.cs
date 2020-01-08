@@ -9,13 +9,15 @@ namespace TrainsApp.Models.ViewModel
 {
     public class TimetableViewModel
     {
+        [Key]
+        public int Id { get; set; }
         [Display(Name = "Номер поезда")]
         [Range(0,4095)]
         public int TrainNumber { get; set; }
         [Display(Name = "Путь")]
         public int Way { get; set; }
         [Display(Name = "Платформа")]
-        public string Platform { get; set; }
+        public int Platform { get; set; }
         [Display(Name = "Назначение/отбытие")]
         public string Destination { get; set; }
         [Display(Name = "Время прибытия")]

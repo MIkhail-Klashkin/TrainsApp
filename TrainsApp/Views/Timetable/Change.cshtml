@@ -1,6 +1,6 @@
 ﻿@model TrainsApp.Models.ViewModel.TimetableViewModel
 @{
-    ViewBag.Title = "Change";
+    ViewBag.Title = "Изменение элемента";
 }
 
 <h2>Change</h2>
@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="panel-body">
-        @using (Html.BeginForm("Add", "Timetable", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("ChangeTimetable", "Timetable", FormMethod.Post))
         {
             <form>
                 <table width="100%" border="0" class="my-table">
@@ -67,7 +67,12 @@
                     <tr>
                         <td valign="top">
                             @Html.LabelFor(model => model.ArrivalTime)
-                            @Html.EditorFor(model => model.ArrivalTime, new { htmlAttributes = new { @class = "form-control" } })
+                            <select name="Выберите тип">
+                                <option>Пассажирский</option>
+                                <option>Товарный</option>
+                                <option>Электропоезд</option>
+                                @Html.EditorFor(model => model.ArrivalTime, new { htmlAttributes = new { @class = "form-control" } })
+                            </select>
                             <div class="text-danger">
                                 @Html.ValidationMessageFor(model => model.ArrivalTime)
                             </div>
@@ -94,8 +99,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><button type="submit" class="btn button-gray btn-block">Изменить</button></td>
-                        <td><button type="submit" class="btn button-gray btn-block">Отмена</button></td>
+                        <td>@Html.ActionLink("Изменить", "ChangeTimetable", "Timetable", routeValues: null, htmlAttributes: new { @class = "btn button-gray", @role = "button" })</td>
+                        <td>@Html.ActionLink("Отмена", "Index", "Timetable", routeValues: null, htmlAttributes: new { @class = "btn button-gray", @role = "button" })</td>
                     </tr>
                 </table>
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })

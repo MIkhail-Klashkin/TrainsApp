@@ -10,8 +10,9 @@ namespace TrainsApp.Models.DB
     {
         [Key]
         public int Id { get; set; }
-        public string Platform { get; set; }
+        public int Platform { get; set; }
         public int Way { get; set; }
+        public Timetable Timetable { get; set; }
 
     }
 }
