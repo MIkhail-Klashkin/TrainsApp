@@ -5,7 +5,7 @@
 
 <h2>Change</h2>
 
-<div class="my-panel tiny-panel">
+<div class="my-panel wide-panel">
     <div class="my-panel-header">
         <div class="my-header-text">
             Добавление элемента
@@ -67,12 +67,8 @@
                     <tr>
                         <td valign="top">
                             @Html.LabelFor(model => model.ArrivalTime)
-                            <select name="Выберите тип">
-                                <option>Пассажирский</option>
-                                <option>Товарный</option>
-                                <option>Электропоезд</option>
-                                @Html.EditorFor(model => model.ArrivalTime, new { htmlAttributes = new { @class = "form-control" } })
-                            </select>
+                            @Html.DropDownListFor(model => model.Type, ViewBag.Type as SelectList)
+                            
                             <div class="text-danger">
                                 @Html.ValidationMessageFor(model => model.ArrivalTime)
                             </div>

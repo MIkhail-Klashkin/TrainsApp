@@ -17,7 +17,7 @@ namespace TrainsApp.Controllers
         // GET: Timetable
         public ActionResult Index(/*int id*/)
         {
-            SelectType();
+            
             //Timetable model = _context.Timetables.First(c => c.Id == id);
             //timetables = _context.Timetables.Where(c => c.Id == model.Id).ToList();
             Update();
@@ -84,11 +84,16 @@ namespace TrainsApp.Controllers
             return View("Index", model);
         }
 
-        public PartialViewResult TimetableInfo(TimetableViewModel model)
+        public ActionResult Change()
         {
-            return PartialView("Add", model);
+            SelectType();
+            return View();
         }
-
+        public ActionResult Add()
+        {
+            SelectType();
+            return View();
+        }
         private void Update()
         {
             var timetables = _context.Timetables.ToList();

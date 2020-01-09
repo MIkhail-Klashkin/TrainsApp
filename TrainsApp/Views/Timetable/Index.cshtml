@@ -5,16 +5,21 @@
 }
 
 
-@{
-    TimetableViewModel timetableView = ViewBag.TimetableView;
-    Html.RenderPartial("Add", timetableView);
+@*@{
+        TimetableViewModel timetableView = ViewBag.TimetableView;
+        Html.RenderPartial("Add", timetableView);
 
-}
+    }*@
 
 
-    <div> 
-           @*@Html.ActionLink("Добавить", "AddTimetable", "Timetable")*@
-    </div>
+<div>
+    @Html.ActionLink("Добавить", "Add", "Timetable")
+</div>
+
+
+<div>
+    @Html.ActionLink("Изменить", "Change", "Timetable")
+</div>
 <h2>Расписание</h2>
 @if (ViewBag.Timetables.Count != 0)
 {
@@ -23,52 +28,52 @@
         @TimetableHelper(timetable)
     }
 }
-@helper TimetableHelper(Timetable timetable) 
+@helper TimetableHelper(Timetable timetable)
 {
 
-<table border="1" class="my-table">
+    <table border="1" class="my-table">
 
-    <tr>
-        <td id="TrainNumber">
-            Номер поезда
-        </td>
-        <td id="Way">
-            Путь
-        </td>
-        <td id="Platform">
-            Платформа
-        </td>
-        <td id="Destiantion">
-           Назначение/Прибытие
-        </td>
-        <td id="DepartureTime">
-           Время прибытия
-        </td>
-        <td id="ArrivalTime">
-            Время отправления
-        </td>
-    </tr>
-    <tr>
-        <td headers="TrainNumber">
-            @timetable.TrainNumber
-        </td>
-        <td headers="Way">
-            @timetable.Way
-        </td>
-        <td headers="Platform">
-            @timetable.Platform
-        </td>
-        <td headers="Destination">
-            @timetable.Destination
-        </td>
-        <td headers="DepartureTime">
-            @timetable.DepartureTime.ToString("H:mm")
-        </td>
-        <td headers="ArrivalTime">
-            @timetable.ArrivalTime.ToString("H:mm")
-        </td>
-    </tr>
-</table>
-       
-  
-        }
+        <tr>
+            <td id="TrainNumber">
+                Номер поезда
+            </td>
+            <td id="Way">
+                Путь
+            </td>
+            <td id="Platform">
+                Платформа
+            </td>
+            <td id="Destiantion">
+                Назначение/Прибытие
+            </td>
+            <td id="DepartureTime">
+                Время прибытия
+            </td>
+            <td id="ArrivalTime">
+                Время отправления
+            </td>
+        </tr>
+        <tr>
+            <td headers="TrainNumber">
+                @timetable.TrainNumber
+            </td>
+            <td headers="Way">
+                @timetable.Way
+            </td>
+            <td headers="Platform">
+                @timetable.Platform
+            </td>
+            <td headers="Destination">
+                @timetable.Destination
+            </td>
+            <td headers="DepartureTime">
+                @timetable.DepartureTime.ToString("H:mm")
+            </td>
+            <td headers="ArrivalTime">
+                @timetable.ArrivalTime.ToString("H:mm")
+            </td>
+        </tr>
+    </table>
+
+
+}
