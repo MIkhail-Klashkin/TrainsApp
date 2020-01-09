@@ -15,102 +15,94 @@
     <div class="panel-body">
         @using (Html.BeginForm("AddTimetable", "Timetable", FormMethod.Post))
         {
-            <form>
-                <table width="100%" border="0" class="my-table">
-                    <tr>
-                        <td valign="top">
-                            @Html.LabelFor(model => model.TrainNumber)
-                            @Html.EditorFor(model => model.TrainNumber, new { htmlAttributes = new { @class = "form-control" } })
-                            <div class="text-danger">
-                                @Html.ValidationMessageFor(model => model.TrainNumber)
-                            </div>
-                        </td>
+        <form>
+            <table width="100%" border="0" class="my-table">
+                <tr>
+                    <td valign="top">
+                        @Html.LabelFor(model => model.TrainNumber)
+                        @Html.EditorFor(model => model.TrainNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="text-danger">
+                            @Html.ValidationMessageFor(model => model.TrainNumber)
+                        </div>
+                    </td>
 
-                    </tr>
-                    <tr>
-                        <td valign="top">
-                            @Html.LabelFor(model => model.Way)
-                            @Html.EditorFor(model => model.Way, new { htmlAttributes = new { @class = "form-control" } })
-                            <div class="text-danger">
-                                @Html.ValidationMessageFor(model => model.Way)
-                            </div>
-                        </td>
-                    </tr>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        @Html.LabelFor(model => model.Way)
+                        @Html.EditorFor(model => model.Way, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="text-danger">
+                            @Html.ValidationMessageFor(model => model.Way)
+                        </div>
+                    </td>
+                </tr>
 
-                    <tr>
-                        <td valign="top">
-                            @Html.LabelFor(model => model.Platform)
-                            @Html.EditorFor(model => model.Platform, new { htmlAttributes = new { @class = "form-control" } })
-                            <div class="text-danger">
-                                @Html.ValidationMessageFor(model => model.Platform)
-                            </div>
-                        </td>
-                    </tr>
+                <tr>
+                    <td valign="top">
+                        @Html.LabelFor(model => model.Platform)
+                        @Html.EditorFor(model => model.Platform, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="text-danger">
+                            @Html.ValidationMessageFor(model => model.Platform)
+                        </div>
+                    </td>
+                </tr>
 
-                    <tr>
-                        <td valign="top">
-                            @Html.LabelFor(model => model.Destination)
-                            @Html.EditorFor(model => model.Destination, new { htmlAttributes = new { @class = "form-control" } })
-                            <div class="text-danger">
-                                @Html.ValidationMessageFor(model => model.Destination)
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td valign="top">
-                            @Html.LabelFor(model => model.DepartureTime)
-                            @Html.EditorFor(model => model.DepartureTime, new { htmlAttributes = new { @class = "form-control", type = "time" } })
-                            <div class="text-danger">
-                                @Html.ValidationMessageFor(model => model.DepartureTime)
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td valign="top">
-                            @Html.LabelFor(model => model.ArrivalTime)
-                            @Html.EditorFor(model => model.ArrivalTime, new { htmlAttributes = new { @class = "form-control", type = "time" } })
-                            <div class="text-danger">
-                                @Html.ValidationMessageFor(model => model.ArrivalTime)
-                            </div>
-                        </td>
-                    </tr>
+                <tr>
+                    <td valign="top">
+                        @Html.LabelFor(model => model.Destination)
+                        @Html.EditorFor(model => model.Destination, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="text-danger">
+                            @Html.ValidationMessageFor(model => model.Destination)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        @Html.LabelFor(model => model.DepartureTime)
+                        @Html.EditorFor(model => model.DepartureTime, new { htmlAttributes = new { @class = "form-control", type = "time" } })
+                        <div class="text-danger">
+                            @Html.ValidationMessageFor(model => model.DepartureTime)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        @Html.LabelFor(model => model.ArrivalTime)
+                        @Html.EditorFor(model => model.ArrivalTime, new { htmlAttributes = new { @class = "form-control", type = "time" } })
+                        <div class="text-danger">
+                            @Html.ValidationMessageFor(model => model.ArrivalTime)
+                        </div>
+                    </td>
+                </tr>
 
-                    <tr>
-                        <td valign="top">
+                <tr>
+                    <td valign="top">
 
-                            @Html.LabelFor(model => model.Type)
-                          @*  @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })*@
-                            @Html.DropDownListFor(model=>model.Type, ViewBag.Type as SelectList)
+                        @Html.LabelFor(model => model.Type)
+                        @Html.DropDownListFor(model => model.Type, ViewBag.Type as SelectList)
+                        <div class="text-danger">
+                            @Html.ValidationMessageFor(model => model.Type)
+                        </div>
+                    </td>
+                </tr>
 
-                            @*<select name="Выберите тип">
-                                <option>Пассажирский</option>
-                                <option>Товарный</option>
-                                <option>Электропоезд</option>*@
-
-                            @*</select>*@
-                            <div class="text-danger">
-                                @Html.ValidationMessageFor(model => model.Type)
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td valign="top">
-                            @Html.LabelFor(model => model.WagonCount)
-                            @Html.EditorFor(model => model.WagonCount, new { htmlAttributes = new { @class = "form-control" } })
-                            <div class="text-danger">
-                                @Html.ValidationMessageFor(model => model.WagonCount)
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        @*  <td>@Html.ActionLink("Добавить", "AddTimetable", "Timetable", routeValues: null, htmlAttributes: new { @class = "btn button-gray", @role = "button", type = "" })</td>*@
-                       <td><button type="submit" class="btn button-gray btn-block">Добавить</button></td>
-                        <td>@Html.ActionLink("Отмена", "Index", "Timetable", routeValues: null, htmlAttributes: new { @class = "btn button-gray", @role = "button" })</td>
-                    </tr>
-                </table>
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            </form>
+                <tr>
+                    <td valign="top">
+                        @Html.LabelFor(model => model.WagonCount)
+                        @Html.EditorFor(model => model.WagonCount, new { htmlAttributes = new { @class = "form-control" } })
+                        <div class="text-danger">
+                            @Html.ValidationMessageFor(model => model.WagonCount)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    @*  <td>@Html.ActionLink("Добавить", "AddTimetable", "Timetable", routeValues: null, htmlAttributes: new { @class = "btn button-gray", @role = "button", type = "" })</td>*@
+                    <td><button type="submit" class="btn button-gray btn-block">Добавить</button></td>
+                    <td>@Html.ActionLink("Отмена", "Index", "Timetable", routeValues: null, htmlAttributes: new { @class = "btn button-gray", @role = "button" })</td>
+                </tr>
+            </table>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        </form>
         }
     </div>
 </div>

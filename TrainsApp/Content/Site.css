@@ -62,3 +62,8 @@ table.my-table {
     margin: auto;
     width: 50%;
 }
+table.my-table2 {
+   
+    border-spacing: 64px;
+    
+}

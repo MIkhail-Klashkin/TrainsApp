@@ -30,7 +30,8 @@ namespace TrainsApp.Controllers
             //View("Add");
             timetableView = model;
             Update();
-            if (!ModelState.IsValid) { return View("Index", model); }
+            SelectType();
+            if (!ModelState.IsValid) { return View("Add", model); }
            
             Timetable timetable = new Timetable
             {

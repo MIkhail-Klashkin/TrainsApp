@@ -18,62 +18,67 @@
 
 
 <div>
-    @Html.ActionLink("Изменить", "Change", "Timetable")
+  
 </div>
 <h2>Расписание</h2>
-@if (ViewBag.Timetables.Count != 0)
-{
-    foreach (var timetable in ViewBag.Timetables)
+<table border="1" class="my-table2">
+
+    <tr>
+        <td id="TrainNumber">
+            Номер поезда
+        </td>
+        <td id="Way">
+            Путь
+        </td>
+        <td id="Platform">
+            Платформа
+        </td>
+        <td id="Destiantion">
+            Назначение/Прибытие
+        </td>
+        <td id="DepartureTime">
+            Время прибытия
+        </td>
+        <td id="ArrivalTime">
+            Время отправления
+        </td>
+       
+        
+    </tr>
+    @if (ViewBag.Timetables.Count != 0)
     {
-        @TimetableHelper(timetable)
+        foreach (var timetable in ViewBag.Timetables)
+        {
+            @TimetableHelper(timetable)
+        }
     }
-}
-@helper TimetableHelper(Timetable timetable)
-{
-
-    <table border="1" class="my-table">
-
-        <tr>
-            <td id="TrainNumber">
-                Номер поезда
-            </td>
-            <td id="Way">
-                Путь
-            </td>
-            <td id="Platform">
-                Платформа
-            </td>
-            <td id="Destiantion">
-                Назначение/Прибытие
-            </td>
-            <td id="DepartureTime">
-                Время прибытия
-            </td>
-            <td id="ArrivalTime">
-                Время отправления
-            </td>
-        </tr>
-        <tr>
-            <td headers="TrainNumber">
-                @timetable.TrainNumber
-            </td>
-            <td headers="Way">
-                @timetable.Way
-            </td>
-            <td headers="Platform">
-                @timetable.Platform
-            </td>
-            <td headers="Destination">
-                @timetable.Destination
-            </td>
-            <td headers="DepartureTime">
-                @timetable.DepartureTime.ToString("H:mm")
-            </td>
-            <td headers="ArrivalTime">
-                @timetable.ArrivalTime.ToString("H:mm")
-            </td>
-        </tr>
-    </table>
+</table>
+    @helper TimetableHelper(Timetable timetable)
+    {
 
 
-}
+<tr>
+    <td>
+        @timetable.TrainNumber
+    </td>
+    <td>
+        @timetable.Way
+    </td>
+    <td>
+        @timetable.Platform
+    </td>
+    <td headers="Destination">
+        @timetable.Destination
+    </td>
+    <td>
+        @timetable.DepartureTime.ToString("H:mm")
+    </td>
+    <td>
+        @timetable.ArrivalTime.ToString("H:mm")
+    </td>
+    <td>@Html.ActionLink("Изменить", "Change", "Timetable")</td>
+</tr>
+
+
+
+    }

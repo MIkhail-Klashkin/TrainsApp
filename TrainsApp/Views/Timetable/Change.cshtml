@@ -18,7 +18,7 @@
                 <table width="100%" border="0" class="my-table">
                     <tr>
                         <td valign="top">
-                            @Html.LabelFor(model => model.TrainNumber)*
+                            @Html.LabelFor(model => model.TrainNumber)
                             @Html.EditorFor(model => model.TrainNumber, new { htmlAttributes = new { @class = "form-control" } })
                             <div class="text-danger">
                                 @Html.ValidationMessageFor(model => model.TrainNumber)
@@ -58,7 +58,7 @@
                     <tr>
                         <td valign="top">
                             @Html.LabelFor(model => model.DepartureTime)
-                            @Html.EditorFor(model => model.DepartureTime, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.DepartureTime, new { htmlAttributes = new { @class = "form-control", type = "time" } })
                             <div class="text-danger">
                                 @Html.ValidationMessageFor(model => model.DepartureTime)
                             </div>
@@ -67,8 +67,7 @@
                     <tr>
                         <td valign="top">
                             @Html.LabelFor(model => model.ArrivalTime)
-                            @Html.DropDownListFor(model => model.Type, ViewBag.Type as SelectList)
-                            
+                            @Html.EditorFor(model => model.ArrivalTime, new { htmlAttributes = new { @class = "form-control", type = "time" } })
                             <div class="text-danger">
                                 @Html.ValidationMessageFor(model => model.ArrivalTime)
                             </div>
@@ -78,7 +77,7 @@
                     <tr>
                         <td valign="top">
                             @Html.LabelFor(model => model.Type)
-                            @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.DropDownListFor(model => model.Type, ViewBag.Type as SelectList)
                             <div class="text-danger">
                                 @Html.ValidationMessageFor(model => model.Type)
                             </div>
@@ -95,7 +94,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>@Html.ActionLink("Изменить", "ChangeTimetable", "Timetable", routeValues: null, htmlAttributes: new { @class = "btn button-gray", @role = "button" })</td>
+                        @*<td>@Html.ActionLink("Изменить", "ChangeTimetable", "Timetable", routeValues: null, htmlAttributes: new { @class = "btn button-gray btn-block", @role = "button", type = "submit" })</td>*@
+                        <td><button type="submit" class="btn button-gray btn-block">Изменить</button></td>
                         <td>@Html.ActionLink("Отмена", "Index", "Timetable", routeValues: null, htmlAttributes: new { @class = "btn button-gray", @role = "button" })</td>
                     </tr>
                 </table>
